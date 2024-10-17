@@ -3,14 +3,13 @@ class Expenses:
     
     
     def __init__(self):
-        self.AccountHolderName = ""
-        self.AccountNumber = ""
+        self.LedgerBookSerialNumber = ""
+        self.LedgerBookHolderName = ""
         self.Capital = 0
         self.ExpenseAmount = 0
         self.BalanceAmount = 0
         self.Mobile = ""
         self.choice = 0
-        self.CapitalChecking = 0
         self.contine = True
     def your_choice(self):
             try:
@@ -31,14 +30,14 @@ class Expenses:
     
     def CreatingNewLedgerBook(self):
         try:
-            self.LedgerBookHolderName = input("Enter your full Name:- ")
-            self.PAN = input("enter your PAN number:- ")
-            self.LedgerBookSerialNumber = self.LedgerBookHolderName+self.PAN           
+            self.LedgerBookHolderName = input("Enter your Name:- ")
+            self.Month = input("enter the Month:- ")
+            self.LedgerBookSerialNumber = f'{self.LedgerBookHolderName}'+f'-{self.Month}'           
             self.Capital = int(input("enter the capital Amount for opening the Ledger Book:- "))
             self.BalanceAmount = self.Capital
             print(f"Welcome {self.LedgerBookHolderName} You opened an Ledger Book Successfuly with Capital Amount of Rs.{self.Capital}/-. \nPlease note {self.LedgerBookSerialNumber} is your Ledger Book Serial number")
             with open(f"{self.LedgerBookSerialNumber}.txt",'w') as f:
-                f.write(f"Welcome {self.LedgerBookHolderName} You opened an Ledger Book with Capital Amount of Rs.{self.Capital}/-. \nAccount number:- {self.LedgerBookSerialNumber}\nBalance= Rs.{self.BalanceAmount}\n")
+                f.write(f"\t\tExpense of {self.LedgerBookHolderName} in {self.Month}\n\n\n Welcome {self.LedgerBookHolderName} You opened an Ledger Book with Capital Amount of Rs.{self.Capital}/-. \nAccount number:- {self.LedgerBookSerialNumber}\nBalance= Rs.{self.BalanceAmount}\n")
         except ValueError:
             print("Invalid input please enter An integer")
     
