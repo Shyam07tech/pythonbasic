@@ -1,4 +1,4 @@
-#Programm for Create a Leger Book for Expenses(Open account,addingexpense,View Expenses History)
+#Programm for Create a Ledger Book for a person in certain month Expenses(Adding new ledgerbook each month,addingexpense,View Expenses History)
 class Expenses:
     
     
