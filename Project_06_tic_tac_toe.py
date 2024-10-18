@@ -46,8 +46,8 @@ def check_draw():
 def insert(letter,pos):
     if is_avaliable(pos):
         board[pos] = letter
-        display_board(board)
         if check_win():
+            display_board(board)
             if letter == 'X':
                 print("Game Over...! Computer Won")
                 exit()
@@ -55,8 +55,10 @@ def insert(letter,pos):
                 print("Congratulation...! You Won")
                 exit()
         if check_draw():
+            display_board(board)
             print("The Game is Finished As tie")
             exit()
+        
     else:
         if letter == 'O':
             pos = int(input("Not free please reenter position:- "))
@@ -83,7 +85,13 @@ def human_mov(letter):
 
 
 #Main loop
-while not check_win():
+while True:
+    display_board(board)
+    human_mov(human)
+    if check_win() or check_draw():
+        break
     display_board(board)
     computer_mov(computer)
-    human_mov(human)
+    if check_win() or check_draw():
+        break
+    
